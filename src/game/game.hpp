@@ -10,5 +10,6 @@
 #include <string>
 
 void testGame(void);
+void testGame2(void);
 
 #endif

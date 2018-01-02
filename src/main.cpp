@@ -9,5 +9,6 @@
 int main(void)
 {
   testGame();
+  testGame2();
   return 0;
 }
