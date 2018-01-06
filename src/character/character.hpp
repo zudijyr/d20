@@ -38,6 +38,12 @@ public:
   int getSt(void) { return st; };
   int getDx(void) { return dx; };
   int getWs(void) { return ws; };
+  void setHp(int h) { hp = h; };
+  void setSt(int s) { st = s; };
+  void setDx(int d) { dx = d; };
+  void setWs(int w) { ws = w; };
+  void setActions(actions& a) { act = a; };
+  void setName(std::string n) { name = n; };
   std::string getName(void) { return name; };
   void procEffects(void);
   void addEffect(effect&);

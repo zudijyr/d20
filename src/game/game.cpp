@@ -200,46 +200,47 @@ void testGame2(void) {
 }
 
 void testGame3(void) {
-  auto WarOne = warrior(1, "war 1");
-  auto WarTwo = warrior(1, "war 2");
-  while(WarOne.isAlive() && WarTwo.isAlive()) {
-      std::cout << WarOne.getName() << WarOne.getHp() << "; ";
-      std::cout << WarTwo.getName() << WarTwo.getHp() << std::endl;
+  auto Warrior = warrior(1);
+  auto Goblin = warrior(1);
+
+  Warrior.printActions();
+  Goblin.printActions();
+  while(Warrior.isAlive() && Goblin.isAlive()) {
+      std::cout << Warrior.getName() << Warrior.getHp() << "; ";
+      std::cout << Goblin.getName() << Goblin.getHp() << std::endl;
       std::cout << "rolling: " << std:: endl;
-    auto rml = WarOne.roll();
-    for(auto i : rml) {
+    auto warl = Warrior.roll();
+    for(auto i : warl) {
       i.print();
     }
-    auto fsl = WarTwo.roll();
-    for(auto i : fsl) {
+    auto gobl = Goblin.roll();
+    for(auto i : gobl) {
       i.print();
     }
     /*Assign hits and heals correctly*/
-    for(auto i : rml) {
+    for(auto i : warl) {
       if(i.getType() == Hit) {
-        WarTwo.addEffect(i);
+        Goblin.addEffect(i);
       } else {
-        WarOne.addEffect(i);
+        Warrior.addEffect(i);
       }
     }
-    for(auto i : fsl) {
+    for(auto i : gobl) {
       if(i.getType() == Hit) {
-        WarOne.addEffect(i);
+        Warrior.addEffect(i);
       } else {
-        WarTwo.addEffect(i);
+        Goblin.addEffect(i);
       }
     }
-    WarOne.procEffects();
-    WarTwo.procEffects();
+    Warrior.procEffects();
+    Goblin.procEffects();
     std::getchar();
-  	std::cout << "print hp" << std::endl;
-  	std::cout << WarOne.getName() << std::endl;
   }
-  if(WarOne.isAlive()) {
-    std::cout << "WarOne wins!" << std::endl;
+  if(Warrior.isAlive()) {
+    std::cout << "Warrior wins!" << std::endl;
   }
-  else if(WarTwo.isAlive()){
-    std::cout << "WarTwo wins!" << std::endl;
+  else if (Goblin.isAlive()) {
+    std::cout << "Goblin wins!" << std::endl;
   } else {
     std::cout << "Tie???" << std::endl;
   }

@@ -8,15 +8,16 @@ warrior::warrior(int level, std::string name) {
     int warst = 5;
     int wardx = 3;
     int warws = 2;
+
     auto WarCleave = cleave(warst);
+    WarCleave.print();
     auto WarAct = action(WarCleave);
     WarAct.addNum(20); WarAct.addNum(19); WarAct.addNum(18); WarAct.addNum(17);
     auto WarActs = actions();
     WarActs.insert(WarAct);
-    character( name,
-      warhp, warst, wardx, warws,
-      WarActs
-    );
+    setName("Warrior");
+    setHp(warhp); setSt(warst); setDx(wardx); setWs(warws);
+    setActions(WarActs);
   }
 }
 
