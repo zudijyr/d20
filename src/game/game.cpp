@@ -200,6 +200,49 @@ void testGame2(void) {
 }
 
 void testGame3(void) {
-  auto WarOne = warrior(1);
-  auto WarTwo = warrior(1);
+  auto Warrior = warrior(1);
+  auto Goblin = warrior(1);
+
+  Warrior.printActions();
+  Goblin.printActions();
+  while(Warrior.isAlive() && Goblin.isAlive()) {
+      std::cout << Warrior.getName() << Warrior.getHp() << "; ";
+      std::cout << Goblin.getName() << Goblin.getHp() << std::endl;
+      std::cout << "rolling: " << std:: endl;
+    auto warl = Warrior.roll();
+    for(auto i : warl) {
+      i.print();
+    }
+    auto gobl = Goblin.roll();
+    for(auto i : gobl) {
+      i.print();
+    }
+    /*Assign hits and heals correctly*/
+    for(auto i : warl) {
+      if(i.getType() == Hit) {
+        Goblin.addEffect(i);
+      } else {
+        Warrior.addEffect(i);
+      }
+    }
+    for(auto i : gobl) {
+      if(i.getType() == Hit) {
+        Warrior.addEffect(i);
+      } else {
+        Goblin.addEffect(i);
+      }
+    }
+    Warrior.procEffects();
+    Goblin.procEffects();
+    std::getchar();
+  }
+  if(Warrior.isAlive()) {
+    std::cout << "Warrior wins!" << std::endl;
+  }
+  else if (Goblin.isAlive()) {
+    std::cout << "Goblin wins!" << std::endl;
+  } else {
+    std::cout << "Tie???" << std::endl;
+  }
+      std::getchar();
 }
