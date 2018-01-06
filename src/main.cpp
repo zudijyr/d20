@@ -8,8 +8,8 @@
 
 int main(void)
 {
-  testGame();
-  testGame2();
+//testGame();
+//testGame2();
   testGame3();
   return 0;
 }

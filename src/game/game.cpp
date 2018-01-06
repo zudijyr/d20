@@ -200,6 +200,48 @@ void testGame2(void) {
 }
 
 void testGame3(void) {
-  auto WarOne = warrior(1);
-  auto WarTwo = warrior(1);
+  auto WarOne = warrior(1, "war 1");
+  auto WarTwo = warrior(1, "war 2");
+  while(WarOne.isAlive() && WarTwo.isAlive()) {
+      std::cout << WarOne.getName() << WarOne.getHp() << "; ";
+      std::cout << WarTwo.getName() << WarTwo.getHp() << std::endl;
+      std::cout << "rolling: " << std:: endl;
+    auto rml = WarOne.roll();
+    for(auto i : rml) {
+      i.print();
+    }
+    auto fsl = WarTwo.roll();
+    for(auto i : fsl) {
+      i.print();
+    }
+    /*Assign hits and heals correctly*/
+    for(auto i : rml) {
+      if(i.getType() == Hit) {
+        WarTwo.addEffect(i);
+      } else {
+        WarOne.addEffect(i);
+      }
+    }
+    for(auto i : fsl) {
+      if(i.getType() == Hit) {
+        WarOne.addEffect(i);
+      } else {
+        WarTwo.addEffect(i);
+      }
+    }
+    WarOne.procEffects();
+    WarTwo.procEffects();
+    std::getchar();
+  	std::cout << "print hp" << std::endl;
+  	std::cout << WarOne.getName() << std::endl;
+  }
+  if(WarOne.isAlive()) {
+    std::cout << "WarOne wins!" << std::endl;
+  }
+  else if(WarTwo.isAlive()){
+    std::cout << "WarTwo wins!" << std::endl;
+  } else {
+    std::cout << "Tie???" << std::endl;
+  }
+      std::getchar();
 }

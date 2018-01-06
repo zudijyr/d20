@@ -8,7 +8,7 @@ namespace Character {
 
 class warrior: public Character::character {
 public:
-  warrior(int);
+  warrior(int, std::string);
 };
 
 }

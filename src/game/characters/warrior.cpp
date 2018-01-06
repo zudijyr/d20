@@ -2,7 +2,7 @@
 
 namespace Character {
 
-warrior::warrior(int level) {
+warrior::warrior(int level, std::string name) {
   if(level == 1) {
     int warhp = 7;
     int warst = 5;
@@ -13,7 +13,7 @@ warrior::warrior(int level) {
     WarAct.addNum(20); WarAct.addNum(19); WarAct.addNum(18); WarAct.addNum(17);
     auto WarActs = actions();
     WarActs.insert(WarAct);
-    character( "Warrior",
+    character( name,
       warhp, warst, wardx, warws,
       WarActs
     );
