@@ -96,11 +96,6 @@ void testGame(void) {
       std::getchar();
 }
 
-#include "game.hpp"
-
-using namespace Action;
-using namespace Character;
-
 void testGame2(void) {
   std::cout << "test game2\n";
   int rmhp = 5;
@@ -202,4 +197,9 @@ void testGame2(void) {
     std::cout << "Tie???" << std::endl;
   }
       std::getchar();
+}
+
+void testGame3(void) {
+  auto WarOne = warrior(1);
+  auto WarTwo = warrior(1);
 }

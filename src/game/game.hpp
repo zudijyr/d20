@@ -9,7 +9,11 @@
 #include <iostream>
 #include <string>
 
+#include "characters/warrior.hpp"
+#include "abilities/cleave.hpp"
+
 void testGame(void);
 void testGame2(void);
+void testGame3(void);
 
 #endif

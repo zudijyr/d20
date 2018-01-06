@@ -5,11 +5,17 @@ SRC = src
 
 d20z: main clean
 
-main: dice.o action.o game.o dice.o character.o action.o ability.o effect.o
-	${CC} ${CXXFLAGS} -o ${BIN}/d20z ${SRC}/main.cpp dice.o ability.o effect.o action.o character.o game.o
+main: dice.o action.o game.o dice.o character.o action.o ability.o effect.o cleave.o warrior.o
+	${CC} ${CXXFLAGS} -o ${BIN}/d20z ${SRC}/main.cpp dice.o ability.o effect.o action.o character.o game.o warrior.o cleave.o
 
 game.o: dice.o
 	${CC} ${CXXFLAGS} -c ${SRC}/game/game.cpp
+
+warrior.o:
+	${CC} ${CXXFLAGS} -c ${SRC}/game/characters/warrior.cpp
+
+cleave.o:
+	${CC} ${CXXFLAGS} -c ${SRC}/game/abilities/cleave.cpp
 
 dice.o:
 	${CC} ${CXXFLAGS} -c ${SRC}/dice/dice.cpp
