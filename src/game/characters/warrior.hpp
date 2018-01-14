@@ -6,9 +6,9 @@
 
 namespace Character {
 
-class warrior: public Character::character {
+class Warrior: public Character::character {
 public:
-  warrior(int, std::string);
+  Warrior(int, std::string);
 };
 
 }

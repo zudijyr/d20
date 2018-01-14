@@ -10,10 +10,13 @@
 #include <string>
 
 #include "characters/warrior.hpp"
+#include "characters/redmage.hpp"
 #include "abilities/cleave.hpp"
 
-void testGame(void);
+void testGame1(void);
 void testGame2(void);
+void genericTestGame(Character::character, Character::character);
 void testGame3(void);
+void print_messages(Character::character, Character::character);
 
 #endif

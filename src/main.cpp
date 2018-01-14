@@ -8,6 +8,6 @@
 
 int main(void)
 {
-  testGame3();
+  testGame2();
   return 0;
 }
